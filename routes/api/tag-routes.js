@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
 router.get('/:id', async (req, res) => {
   try {
     const tag = await Tag.findByPk(req.params.id, {
@@ -42,7 +41,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-
 router.post('/', async (req, res) => {
   try {
     const newTag = await Tag.create(req.body);
@@ -51,7 +49,6 @@ router.post('/', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
 
 router.put('/:id', async (req, res) => {
   try {
@@ -68,7 +65,6 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(error);
   }
 });
-
 
 router.delete('/:id', async (req, res) => {
   try {

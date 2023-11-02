@@ -2,16 +2,24 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Tag extends Model {}
+class Traveller extends Model {}
+// * `id`: primary key
+//     * `name`
+//     * `email`
 
-Tag.init(
+Traveller.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    tag_name: {
+    traveller_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -21,9 +29,9 @@ Tag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tag',
+    modelName: 'traveller',
   }
 );
 
 
-module.exports = Tag;
+module.exports = Traveller;

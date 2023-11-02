@@ -4,10 +4,12 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Product extends Model {}
+class Location extends Model { }
+// * `id`: primary key
+// * `name`
 
 // set up fields and rules for Product model
-Product.init(
+Location.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -15,18 +17,9 @@ Product.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    product_name: {
+    location_name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    price: {
-      type: DataTypes.DECIMAL(10, 2),
-      allowNull: false,
-    },
-    stock: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 10,
     },
   },
   {
@@ -34,12 +27,12 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'location',
   }
 );
 
 
-module.exports = Product;
+module.exports = Location;
 
 
 
